@@ -174,6 +174,15 @@ export const getTransactions = async (token: string, page = 1, limit = 50) => {
   });
 };
 
+// Simple transaction log (walletid, chain, amount, created_at)
+export const getTxLog = async (token: string, page = 1, limit = 50) => {
+  return apiCall(`/admin/transaction?page=${page}&limit=${limit}`, {
+    headers: {
+      'Authorization': `Bearer ${token}`,
+    },
+  });
+};
+
 export const getTransactionDetails = async (token: string, txHash: string) => {
   return apiCall(`/admin/transactions/${txHash}`, {
     headers: {
