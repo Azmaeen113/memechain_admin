@@ -339,24 +339,7 @@ export default function PresaleManagement() {
     return `${yyyy}-${MM}-${DD} ${HH}:${mm}:${ss}`;
   };
 
-  const formatDateTime = (dateString: string) => {
-    if (!dateString) return '';
-    const date = new Date(dateString);
-    return formatBackendDate(date);
-  };
-
-  const getCurrentDateTime = () => {
-    const now = new Date();
-    return now.toLocaleString('en-US', {
-      year: 'numeric',
-      month: '2-digit',
-      day: '2-digit',
-      hour: '2-digit',
-      minute: '2-digit',
-      second: '2-digit',
-      hour12: false
-    }).replace(/(\d+)\/(\d+)\/(\d+),?\s*(\d+):(\d+):(\d+)/, '$3-$1-$2 $4:$5:$6');
-  };
+  // Removed unused formatDateTime and getCurrentDateTime helpers
 
   if (loading || !token || !isAuthenticated) {
     return (

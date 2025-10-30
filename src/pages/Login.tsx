@@ -9,7 +9,7 @@ import { useNavigate } from "react-router-dom";
 import { useAuth } from "@/contexts/AuthContext";
 import { Eye, EyeOff, Lock, Mail, Shield } from "lucide-react";
 import Starfield from "@/components/Starfield";
-import logo from "/memelogo.png";
+// Use public asset path directly
 
 export default function Login() {
   const [email, setEmail] = useState("");
@@ -84,7 +84,7 @@ export default function Login() {
         {/* Logo/Header */}
         <div className="text-center mb-8">
           <div className="inline-flex items-center justify-center w-24 h-24 glass rounded-full mb-6 glow-green relative">
-            <img src={logo} alt="MemeChain" className="w-14 h-14 rounded-full" />
+            <img src={"/memelogo.png"} alt="MemeChain" className="w-14 h-14 rounded-full" />
             <div className="absolute inset-0 rounded-full bg-gradient-to-r from-primary/20 to-cyan-400/20 animate-pulse" />
           </div>
           <h1 className="text-5xl font-bold text-white mb-3 bg-gradient-to-r from-white via-primary to-cyan-400 bg-clip-text text-transparent">

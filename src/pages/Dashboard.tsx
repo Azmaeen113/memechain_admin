@@ -3,11 +3,11 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { Button } from '@/components/ui/button';
 import { useAuth } from '@/contexts/AuthContext';
 import { getDashboardStats } from '@/lib/api';
-import { Users, DollarSign, TrendingUp, Activity, LogOut, Settings, BarChart3, Zap, Shield, Coins } from 'lucide-react';
+import { Users, DollarSign, TrendingUp, Activity, LogOut, Settings, BarChart3, Zap, Coins } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import { useToast } from '@/components/ui/use-toast';
 import Starfield from '@/components/Starfield';
-import logo from '/memelogo.png';
+// Use public asset path directly
 
 export default function Dashboard() {
   const { user, logout, token } = useAuth();
@@ -19,7 +19,7 @@ export default function Dashboard() {
     unpaidUsers: 0,
     presaleInfo: {}
   });
-  const [loading, setLoading] = useState(true);
+  const [, setLoading] = useState(true);
 
   useEffect(() => {
     const fetchStats = async () => {
@@ -103,7 +103,7 @@ export default function Dashboard() {
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-4">
               <div className="relative">
-                <img src={logo} alt="MemeChain" className="w-12 h-12 rounded-full glow-green" />
+                <img src={"/memelogo.png"} alt="MemeChain" className="w-12 h-12 rounded-full glow-green" />
                 <div className="absolute inset-0 rounded-full bg-gradient-to-r from-primary/20 to-cyan-400/20 animate-pulse" />
               </div>
               <div>

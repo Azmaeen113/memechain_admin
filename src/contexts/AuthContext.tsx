@@ -90,7 +90,6 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
     }
 
     try {
-      const userData = JSON.parse(storedUser);
       const { refreshAdminToken } = await import('../lib/api');
       
       // For now, we'll use the default admin credentials
