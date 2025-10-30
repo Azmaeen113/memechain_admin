@@ -1,0 +1,135 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Cosmic Color Palette */
+    --background: 220 26% 6%; /* Deep space black #0a0e1a */
+    --foreground: 0 0% 100%; /* White */
+    --card: 221 39% 13%; /* Dark navy #1e2235 */
+    --card-foreground: 0 0% 100%;
+    --popover: 221 39% 13%;
+    --popover-foreground: 0 0% 100%;
+    --primary: 77 100% 53%; /* Bright lime green #c4ff0e */
+    --primary-foreground: 220 26% 6%;
+    --secondary: 221 39% 13%;
+    --secondary-foreground: 0 0% 100%;
+    --muted: 215 20% 65%; /* Light gray #a0aec0 */
+    --muted-foreground: 215 20% 65%;
+    --accent: 77 100% 53%;
+    --accent-foreground: 220 26% 6%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 221 39% 20%;
+    --input: 221 39% 13%;
+    --ring: 77 100% 53%;
+    --radius: 0.75rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  
+  body {
+    @apply bg-background text-foreground font-sans;
+    font-family: 'Space Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    background: linear-gradient(135deg, #0a0e1a 0%, #111827 50%, #1a1d2e 100%);
+    min-height: 100vh;
+  }
+
+  /* Starfield Background */
+  .starfield {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: -1;
+  }
+
+  .star {
+    position: absolute;
+    background: white;
+    border-radius: 50%;
+    animation: twinkle 3s infinite;
+  }
+
+  .star:nth-child(odd) {
+    animation-delay: 1s;
+  }
+
+  .star:nth-child(3n) {
+    animation-delay: 2s;
+  }
+
+  @keyframes twinkle {
+    0%, 100% { opacity: 0.3; transform: scale(1); }
+    50% { opacity: 1; transform: scale(1.2); }
+  }
+
+  /* Cosmic gradient animation */
+  .cosmic-bg {
+    background: linear-gradient(-45deg, #0a0e1a, #111827, #1a1d2e, #252842);
+    background-size: 400% 400%;
+    animation: cosmicGradient 15s ease infinite;
+  }
+
+  @keyframes cosmicGradient {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+
+  /* Glassmorphism */
+  .glass {
+    background: rgba(30, 34, 53, 0.8);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(196, 255, 14, 0.1);
+  }
+
+  /* Glow effects */
+  .glow-green {
+    box-shadow: 0 0 20px rgba(196, 255, 14, 0.3);
+  }
+
+  .glow-green:hover {
+    box-shadow: 0 0 30px rgba(196, 255, 14, 0.5);
+  }
+
+  /* Smooth transitions */
+  .smooth-transition {
+    transition: all 0.3s ease;
+  }
+}
+
+@layer components {
+  .cosmic-card {
+    @apply glass rounded-xl border border-primary/20 hover:border-primary/40 smooth-transition;
+  }
+
+  .cosmic-card:hover {
+    @apply glow-green;
+    transform: translateY(-2px);
+  }
+
+  .cosmic-button {
+    @apply bg-primary text-primary-foreground hover:bg-primary/90 smooth-transition;
+    box-shadow: 0 0 15px rgba(196, 255, 14, 0.3);
+  }
+
+  .cosmic-button:hover {
+    box-shadow: 0 0 25px rgba(196, 255, 14, 0.5);
+    transform: translateY(-1px);
+  }
+
+  .cosmic-input {
+    @apply bg-card border border-border text-foreground placeholder:text-muted-foreground;
+    @apply focus:border-primary focus:ring-primary/20 smooth-transition;
+  }
+}

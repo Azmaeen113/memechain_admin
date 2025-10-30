@@ -1,0 +1,9 @@
+* text=auto
+*.{js,jsx,ts,tsx,css,scss,html,json,md,yml,yaml} text eol=lf
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.webp binary
+*.ico binary
+*.mp4 binary
